@@ -71,12 +71,13 @@ THIRD_PARTY_APPS = [
     "django_celery_beat",
     "rest_framework",
     "corsheaders",
-    "djoser"
+    "djoser",
+    "phonenumber_field",
 ]
 
 LOCAL_APPS = [
     "tcm_api.users.apps.UsersConfig",
-    # Your stuff: custom apps go here
+    "organisations.apps.OrganisationsConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -296,7 +297,7 @@ SOCIALACCOUNT_ADAPTER = "tcm_api.users.adapters.SocialAccountAdapter"
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.SessionAuthentication",
-        "rest_framework_simplejwt.authentication.JWTAuthentication"
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
 }
@@ -307,5 +308,5 @@ CORS_URLS_REGEX = r"^/api/.*$"
 # ------------------------------------------------------------------------------
 
 SIMPLE_JWT = {
-   'AUTH_HEADER_TYPES': ('JWT',),
+    "AUTH_HEADER_TYPES": ("JWT",),
 }
